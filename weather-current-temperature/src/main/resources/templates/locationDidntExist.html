@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css} "/>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <h4>I am not able to present the weather for [[${city.getNameToUpperCase()}]]</h4>
+    </div>
+    <div class="row justify-content-md-center">
+        <p><a th:href="@{~/api/weather}" class="btn btn-outline-info">Back to looking weather</a></p>
+    </div>
+</div>
+
+</body>
+</html>

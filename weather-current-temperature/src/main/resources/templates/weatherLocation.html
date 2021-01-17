@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css} "/>
+</head>
+<body>
+<main>
+    <h4>Look weather in your City</h4>
+    <br/>
+    <form th:action="@{/api/weather/showWather}" th:object="${city}"  method="post">
+        <p>City: <input type="text" th:field="*{name}" required="required"></p>
+        <p><input type="submit" value="Show weather"></p>
+    </form>
+</main>
+
+</body>
+</html>

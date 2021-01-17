@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add notebook</title>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+</head>
+<body>
+<main class="container text-center align-content-center">
+    <h4 th:text="'Edit your note for Notebook ' + ${notebook.getTitle()} "/>
+    <br/>
+    <form th:action="@{/api/note/__${note.id}__/editNote}" th:object="${note}" method="post">
+        <p>Title: <input type="text" th:field="*{title}"></p>
+        <p>Content: </p>
+        <textarea rows="20" cols="80" th:field="*{content}"/></p>
+        <p><input type="submit" value="Edit note"></p>
+        <p><a th:href="@{/api/notebook/__${notebook.id}__/getNotes}">Notes</a></p>
+    </form>
+</main>
+
+</body>
+</html>

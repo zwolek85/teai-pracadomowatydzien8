@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add notebook</title>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+</head>
+<body>
+<main class="container text-center align-content-center">
+    <h4>Add your notebook</h4>
+    <br/>
+    <form th:action="@{/api/addNotebook}" th:object="${notebook}" method="post">
+        <p>Title: <input type="text" th:field="*{title}"></p>
+        </p>
+        <p><input type="submit" value="Add notebook"></p>
+        <p><a th:href="@{~/api/notebooks}">Notebooks</a></p>
+    </form>
+</main>
+
+</body>
+</html>

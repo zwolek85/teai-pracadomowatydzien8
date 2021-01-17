@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Notebooks</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css} "/>
+</head>
+<body>
+<h4 th:inline="text">My Notebooks</h4>
+<br/>
+<main>
+    <table class="table text-center table-dark col-4">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="notebook:${notebooks}">
+            <th scope="row" th:text="${notebook.getId()}"/>
+            <td th:text="${notebook.getTitle()}"/>
+            <td><a th:href="@{/api/notebook/__${notebook.id}__/addNote}" class="btn btn-outline-info">Add note</a></td>
+            <td><a th:href="@{/api/notebook/__${notebook.id}__/getNotes}" class="btn btn-outline-info">Notes</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <p><a th:href="@{~/api/addNotebook}" class="btn btn-outline-info">Add notebook</a></p>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Space</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css} "/>
+</head>
+<body>
+<h4 th:inline="text">Weather Forecast for 5 days - [[${city.getNameToUpperCase()}]]</h4>
+<br/>
+<main class="align-content-center">
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Min temp</th>
+            <th scope="col">Max temp</th>
+            <th scope="col">Predictability</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="weather:${consolidatedWeathers}">
+            <th scope="row" th:text="${weather.getApplicableDate()}"/>
+            <td th:text="${weather.getMinTemp()} + ' C'"/>
+            <td th:text="${weather.getMaxTemp()} + ' C'"/>
+            <td><img th:src="${weather.getIconUrl()}"/></td>
+        </tr>
+        </tbody>
+    </table>
+    <p><a th:href="@{~/api/weather}" class="btn btn-outline-info">Back to looking weather</a></p>
+</main>
+</body>
+</html>
